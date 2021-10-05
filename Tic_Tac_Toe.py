@@ -49,7 +49,7 @@ def who_go_first():
 
 ### 7
 def space_check(board, position):
-    if board[position] != "o" and board[position] != "x":
+    if board[position] != "o" or board[position] != "x":
         return True
     return False
 
