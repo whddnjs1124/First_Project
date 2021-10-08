@@ -38,7 +38,7 @@ def win_check(board, marker):
 
 ### 5
 import random
-def first_player():
+def choose_first_player_random():
     first_pick = random.randint(0,1)
     
     if first_pick == 0:
@@ -62,7 +62,7 @@ def full_board_check(board):
 ### 8
 def next_position_check(board):
     position = 0
-    while position not in [1,2,3,4,5,6,7,8,9] and space_check(board,position) == True:
+    while position not in [1,2,3,4,5,6,7,8,9] and space_check(board,position):
         position = int(input('choose 1 to 9: '))
         break
     return position
@@ -79,8 +79,8 @@ def replay():
 while True:
     the_board = ["0",'1','2','3','4','5','6','7','8','9']
     player1_marker, player2_marker = player_input()
-    turn = first_player()
-    print(turn + " will go first")
+    first_player = choose_first_player_random()
+    print(first_player + " will start first")
     play_game = input('ready to play? (Y/N): ')
     
     if play_game == "Y":
@@ -90,8 +90,8 @@ while True:
             
     while game_on:
         
-        if turn == 'player1':
-            print("turn: " + turn)
+        if first_player == 'player1':
+            print("turn: " + first_player)
             display_board(the_board)
             position = next_position_check(the_board)
             marking(the_board, player1_marker, position)
@@ -106,12 +106,12 @@ while True:
                     print('draw')
                     game_on = False
                 else:
-                    turn = 'player2'
+                    first_player = 'player2'
                     
              
         else:
-            if turn == 'player2':
-                print("turn: " + turn)
+            if first_player == 'player2':
+                print("turn: " + first_player)
                 display_board(the_board)
                 position = next_position_check(the_board)
                 marking(the_board, player2_marker, position)
@@ -126,7 +126,7 @@ while True:
                         print('draw')
                         game_on = False
                     else:
-                        turn = 'player1'
+                        first_player = 'player1'
                         
     if not replay():
         break
