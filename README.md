@@ -1,7 +1,7 @@
 # First_Project
  Welcome to Tic_Tac_Toe game
  
- *** you need to run this code with python 3.x otherwise you will get an error
+ *** run this code with python 3.x otherwise there will an error
  
  How to play:
  1. 2 players needed to play the game.
